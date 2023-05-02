@@ -20,7 +20,4 @@ spec:
     helm:
       values: |
         {{- .Files.Get $filePath |nindent 8 }}
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+  syncPolicy: {}
