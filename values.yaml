@@ -1,0 +1,10 @@
+apps:
+  argocd:
+    name: argo 
+    namespace: argocd
+    source:
+      repoURL: https://argoproj.github.io/argo-helm
+      targetRevision: 5.31.0
+
+destination:
+    server: https://kubernetes.default.svc
