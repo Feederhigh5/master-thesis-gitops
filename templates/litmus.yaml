@@ -1,0 +1,27 @@
+{{- $app := .Values.apps.litmus }}
+{{- $appName := "litmus" }}
+{{- $filePath := printf "values/%s.yaml" $appName -}}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ $app.name }}
+  namespace: {{ $app.namespace }}
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: argocd
+    server: {{ .Values.destination.server }}
+  project: default
+  source:
+    # path: guestbook
+    chart: argo-cd
+    repoURL: {{ $app.source.repoURL }}
+    targetRevision: {{ $app.source.targetRevision }}
+    helm:
+      values: |
+        {{- .Files.Get $filePath |nindent 8 }}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
