@@ -14,8 +14,10 @@ spec:
     server: {{ .Values.destination.server }}
   project: default
   source:
-    # path: guestbook
-    chart: argo-cd
+    {{- if $app.source.path }}
+      path: {{ $app.source.path }}
+    {{- end }}
+    chart: {{ $app.source.chart }}
     repoURL: {{ $app.source.repoURL }}
     targetRevision: {{ $app.source.targetRevision }}
     helm:

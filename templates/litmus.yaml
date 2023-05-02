@@ -14,7 +14,10 @@ spec:
     server: {{ .Values.destination.server }}
   project: default
   source:
+    {{- if $app.source.path }}
     path: {{ $app.source.path }}
+    {{- end }}
+    chart: {{ $app.source.chart }}
     repoURL: {{ $app.source.repoURL }}
     targetRevision: {{ $app.source.targetRevision }}
     helm:

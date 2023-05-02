@@ -3,12 +3,14 @@ apps:
     name: argo 
     namespace: argocd
     source:
+      chart: argocd
       repoURL: https://argoproj.github.io/argo-helm
       targetRevision: 5.31.0
   litmus:
     name: litmus
     namespace: litmus
     source:
+      chart: litmus
       repoURL: https://github.com/Feederhigh5/master-thesis-poc.git
       path: litmus
       targetRevision: main
