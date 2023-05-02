@@ -16,8 +16,8 @@ spec:
   source:
     # path: guestbook
     chart: argo-cd
-    repoURL: {{- $app.source.repoURL -}}
-    targetRevision: {{- $app.source.targetRevision -}}
+    repoURL: {{ $app.source.repoURL }}
+    targetRevision: {{ $app.source.targetRevision }}
     helm:
       values: |
         {{- .Files.Get $filePath |nindent 8 }}
