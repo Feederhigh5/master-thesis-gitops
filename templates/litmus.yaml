@@ -15,7 +15,6 @@ spec:
   project: default
   source:
     # path: guestbook
-    chart: argo-cd
     repoURL: {{ $app.source.repoURL }}
     targetRevision: {{ $app.source.targetRevision }}
     helm:
