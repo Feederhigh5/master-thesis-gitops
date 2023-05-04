@@ -10,4 +10,4 @@ spec:
   capacity:
     storage: 20Gi
   hostPath:
-    path: /data/pv0001/
+    path: /data/pv-storage/pv0001/
