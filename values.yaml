@@ -11,8 +11,7 @@ apps:
     namespace: litmus
     source:
       chart: litmus
-      repoURL: https://github.com/Feederhigh5/master-thesis-poc.git
-      path: litmus
-      targetRevision: main
+      repoURL: https://litmuschaos.github.io/litmus-helm/
+      targetRevision: 2.15.10
 destination:
     server: https://kubernetes.default.svc
