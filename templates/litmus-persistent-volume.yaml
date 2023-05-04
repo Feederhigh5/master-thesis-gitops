@@ -8,6 +8,6 @@ spec:
   accessModes:
     - ReadWriteOnce
   capacity:
-    storage: 20Gi
+    storage: 8Gi
   hostPath:
     path: /data/pv-storage/pv0001/
