@@ -343,5 +343,5 @@ mongodb:
   volumePermissions:
     enabled: true
     securityContext.runAsUser: auto
-  persistence:
-    existingClaim: "litmus-mongodb"
+  # persistence:
+  #   existingClaim: "litmus-mongodb"
