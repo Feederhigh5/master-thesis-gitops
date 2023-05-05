@@ -13,5 +13,12 @@ apps:
       chart: litmus
       repoURL: https://litmuschaos.github.io/litmus-helm/
       targetRevision: 2.15.10
+  prometheus:
+    name: prometheus
+    namespace: prometheus
+    source:
+      chart: prometheus
+      repoURL: https://prometheus-community.github.io/helm-charts
+      targetRevision: 22.1.0
 destination:
     server: https://kubernetes.default.svc

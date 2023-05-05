@@ -1,0 +1,2 @@
+persistentVolume:
+  existingClaim: prometheus-server
