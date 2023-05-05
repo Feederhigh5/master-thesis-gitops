@@ -1,2 +1,3 @@
-persistentVolume:
-  existingClaim: prometheus-server
+server:
+  persistentVolume:
+    existingClaim: prometheus-server
