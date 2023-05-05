@@ -17,4 +17,4 @@ spec:
   resources:
     requests:
       storage: "8Gi"
-    volumeName: pv0001-prometheus
+  volumeName: pv0001-prometheus
