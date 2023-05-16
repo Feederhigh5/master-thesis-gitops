@@ -13,6 +13,11 @@ spec:
       labels:
         app: debug-pod
     spec:
+      securityContext:
+        fsGroup: 65534
+        runAsGroup: 65534
+        runAsNonRoot: false
+        runAsUser: 65534
       containers:
         - name: debug-pod
           image: centos:latest
