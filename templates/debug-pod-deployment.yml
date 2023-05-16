@@ -4,7 +4,7 @@ metadata:
   name: debug-pod
   namespace: prometheus
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: debug-pod
@@ -13,11 +13,6 @@ spec:
       labels:
         app: debug-pod
     spec:
-      securityContext:
-        fsGroup: 65534
-        runAsGroup: 65534
-        runAsNonRoot: false
-        runAsUser: 65534
       containers:
         - name: debug-pod
           image: centos:latest
@@ -25,7 +20,7 @@ spec:
           args: ["-ec", "while :; do echo .; sleep 5;done"]
           volumeMounts:
             - name: datadir
-              mountPath: "/bitnami/mongodb"
+              mountPath: "/volume"
       volumes:
         - name: datadir
           persistentVolumeClaim:
