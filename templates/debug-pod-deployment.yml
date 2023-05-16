@@ -2,9 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: debug-pod
-  namespace: litmus
+  namespace: prometheus
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: debug-pod
@@ -29,4 +29,4 @@ spec:
       volumes:
         - name: datadir
           persistentVolumeClaim:
-            claimName: litmus-mongodb
+            claimName: prometheus-server
