@@ -11,4 +11,4 @@ spec:
   capacity:
     storage: 8Gi
   hostPath:
-    path: /data/pv-storage/pv0001/
+    path: /data/pv-storage/pv0001/litmus
