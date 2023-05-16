@@ -4,7 +4,7 @@ metadata:
   name: debug-pod
   namespace: prometheus
 spec:
-  replicas: 1
+  replicas: 0
   selector:
     matchLabels:
       app: debug-pod
