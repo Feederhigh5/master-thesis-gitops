@@ -242,7 +242,15 @@ server:
 
   ## Additional InitContainers to initialize the pod
   ##
-  extraInitContainers: []
+  # Need extra Init Container to change ownership of volume
+  # Using hostPath volume with minikube and that only allows root by default
+  extraInitContainers: #[]
+    - name: ownership-change-sidecar
+      image: busybox
+      command: ["sh", "-c", "chown -R 65534:65534 /data"]
+      volumeMounts:
+        - name: storage-volume
+          mountPath: /data
 
   ## Additional Prometheus server Volume mounts
   ##
