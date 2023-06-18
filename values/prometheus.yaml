@@ -1158,6 +1158,13 @@ extraScrapeConfigs: |
     - action: labelmap
       regex: __tmp_pod_label_(.+)  
 
+  - job_name: 'chaos-exporter'
+    static_configs:
+      - targets: ['chaos-exporter.litmus.svc.cluster.local:8080']
+    relabel_configs:
+      - target_label: instance
+        replacement: 'chaos-exporter-service'
+
   # - job_name: 'prometheus-blackbox-exporter'
   #   metrics_path: /probe
   #   params:
