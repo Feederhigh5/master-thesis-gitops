@@ -245,9 +245,11 @@ server:
   # Need extra Init Container to change ownership of volume
   # Using hostPath volume with minikube and that only allows root by default
   extraInitContainers: #[]
-    - name: ownership-change-sidecar
+    - name: ownership-change-initContainer
       image: busybox
       command: ["sh", "-c", "chown -R 65534:65534 /data"]
+      securityContext:
+        runAsUser: 0
       volumeMounts:
         - name: storage-volume
           mountPath: /data
