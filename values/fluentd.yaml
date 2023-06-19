@@ -390,9 +390,12 @@ fileConfigs:
         @type elasticsearch
         host "elasticsearch-master.logging.svc.cluster.local"
         port 9200
+        scheme https
         path ""
         user elastic
         password LYBKbzroXOZGYg1Q
+        ssl_verify true
+        ssl_version TLSv1_2
       </match>
     </label>
 
