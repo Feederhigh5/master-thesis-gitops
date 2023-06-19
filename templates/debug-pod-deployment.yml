@@ -31,7 +31,7 @@ spec:
             claimName: elasticsearch-master-elasticsearch-master-0
         - name: datadir1
           persistentVolumeClaim:
-            claimName: elasticsearch-master-elasticsearch-master-0
+            claimName: elasticsearch-master-elasticsearch-master-1
         - name: datadir2
           persistentVolumeClaim:
-            claimName: elasticsearch-master-elasticsearch-master-0
+            claimName: elasticsearch-master-elasticsearch-master-2
