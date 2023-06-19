@@ -6,6 +6,27 @@ apps:
       chart: argo-cd
       repoURL: https://argoproj.github.io/argo-helm
       targetRevision: 5.31.0
+  elasticSearch:
+    name: elastic-search
+    namespace: logging
+    source:
+      chart: elasticsearch
+      repoURL: https://helm.elastic.co
+      targetRevision: 8.5.1
+  kibana:
+    name: kibana
+    namespace: logging
+    source:
+      chart: kibana
+      repoURL: https://helm.elastic.co
+      targetRevision: 8.5.1
+  fluentd:
+    name: fluentd
+    namespace: logging
+    source:
+      chart: fluentd
+      repoURL: https://fluent.github.io/helm-charts
+      targetRevision: 0.4.3
   linkerdCrds:
     name: linkerd-crds 
     namespace: linkerd
@@ -43,3 +64,4 @@ apps:
       targetRevision: 6.56.4
 destination:
     server: https://kubernetes.default.svc
+logging: true
