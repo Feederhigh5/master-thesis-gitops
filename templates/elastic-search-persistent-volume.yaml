@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: pv0001-elastics
+  name: pv0001-elastics-0
   labels:
     app: elasticsearch
 spec:
@@ -11,4 +11,35 @@ spec:
   capacity:
     storage: 20Gi
   hostPath:
-    path: /data/pv-storage/pv0001/elastics
+    path: /data/pv-storage/pv0001/elastics/volume0
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv0001-elastics-1
+  labels:
+    app: elasticsearch
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 20Gi
+  hostPath:
+    path: /data/pv-storage/pv0001/elastics/volume1
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv0001-elastics-2
+  labels:
+    app: elasticsearch
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 20Gi
+  hostPath:
+    path: /data/pv-storage/pv0001/elastics/volume2

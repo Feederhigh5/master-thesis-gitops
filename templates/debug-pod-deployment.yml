@@ -19,9 +19,19 @@ spec:
           command: ["/bin/sh"]
           args: ["-ec", "while :; do echo .; sleep 5;done"]
           volumeMounts:
-            - name: datadir
-              mountPath: "/volume"
+            - name: datadir0
+              mountPath: "/volume/0"
+            - name: datadir1
+              mountPath: "/volume/1"
+            - name: datadir2
+              mountPath: "/volume/2"
       volumes:
-        - name: datadir
+        - name: datadir0
+          persistentVolumeClaim:
+            claimName: elasticsearch-master-elasticsearch-master-0
+        - name: datadir1
+          persistentVolumeClaim:
+            claimName: elasticsearch-master-elasticsearch-master-0
+        - name: datadir2
           persistentVolumeClaim:
             claimName: elasticsearch-master-elasticsearch-master-0
