@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: debug-pod
-  namespace: prometheus
+  namespace: logging
 spec:
   replicas: 1
   selector:
@@ -24,4 +24,4 @@ spec:
       volumes:
         - name: datadir
           persistentVolumeClaim:
-            claimName: prometheus-server
+            claimName: elasticsearch-master-elasticsearch-master-0
