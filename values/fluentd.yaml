@@ -368,7 +368,7 @@ fileConfigs:
     <label @OUTPUT>
       <match **>
         @type elasticsearch
-        host "elasticsearch-master"
+        host "elasticsearch-master.logging.svc.cluster.local"
         port 9200
         path ""
         scheme http
