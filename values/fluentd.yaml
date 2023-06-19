@@ -371,6 +371,7 @@ fileConfigs:
         host "elasticsearch-master"
         port 9200
         path ""
+        scheme http
         user elastic
         password LYBKbzroXOZGYg1Q
       </match>
