@@ -203,9 +203,14 @@ initContainers: []
 mountVarLogDirectory: true
 mountDockerContainersDirectory: true
 
-volumes: []
+volumes:
+  - name: elasticsearch-cert
+    secret:
+      secretName: elasticsearch-master-certs
 
-volumeMounts: []
+volumeMounts:
+  - name: elasticsearch-cert
+    mountPath: /fluentd/elastic/
 
 ## Only available if kind is StatefulSet
 ## Fluentd persistence
@@ -396,6 +401,9 @@ fileConfigs:
         password LYBKbzroXOZGYg1Q
         ssl_verify true
         ssl_version TLSv1_2
+        ca_file "/fluentd/elastic/ca.crt"
+        client_cert "/fluentd/elastic/tls.crt"
+        client_key "/fluentd/elastic/tls.key" 
       </match>
     </label>
 
