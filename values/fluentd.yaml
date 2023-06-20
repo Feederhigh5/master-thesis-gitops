@@ -305,8 +305,8 @@ plugins: []
 
 ## Add fluentd config files from K8s configMaps
 ##
-configMapConfigs: []
-#  - fluentd-prometheus-conf
+configMapConfigs: #[]
+  - fluentd-prometheus-conf
 #  - fluentd-systemd-conf
 
 ## Fluentd configurations:
