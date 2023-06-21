@@ -1229,15 +1229,15 @@ extraScrapeConfigs: |
     relabel_configs:
       - action: labelmap
         regex: __meta_kubernetes_node_label_(.+)
-      - sourceLabels:
+      - source_labels:
         - name
-        targetLabel: container
-      - sourceLabels:
+        target_label: container
+      - source_labels:
         - container_label_io_kubernetes_pod_namespace
-        targetLabel: namespace
-      - sourceLabels:
+        target_label: namespace
+      - source_labels:
         - container_label_io_kubernetes_pod_name
-        targetLabel: pod
+        target_label: pod
 
   # - job_name: node
   #   static_configs:
