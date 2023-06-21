@@ -1225,7 +1225,7 @@ extraScrapeConfigs: |
   
   - job_name: 'cadvisor'
     static_configs:
-      - targets ['cadvisor.cadvisor.svc.cluster.local:8080']
+      - targets: ['cadvisor.cadvisor.svc.cluster.local:8080']
     relabel_configs:
       - action: labelmap
         regex: __meta_kubernetes_node_label_(.+)
