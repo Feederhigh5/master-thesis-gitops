@@ -62,6 +62,13 @@ apps:
       chart: grafana
       repoURL: https://grafana.github.io/helm-charts
       targetRevision: 6.56.4
+  cAdvisor:
+    name: cadvisor
+    namespace: cadvisor
+    source:
+      chart: cadvisor
+      repoURL: https://ckotzbauer.github.io/helm-charts
+      targetRevision: 2.2.4
 destination:
     server: https://kubernetes.default.svc
 logging: true
