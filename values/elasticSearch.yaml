@@ -109,7 +109,7 @@ volumeClaimTemplate:
   storageClassName: "standard"
   resources:
     requests:
-      storage: 20Gi
+      storage: 10Gi
 
 rbac:
   create: false
