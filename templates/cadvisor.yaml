@@ -1,0 +1,26 @@
+{{- $app := .Values.apps.cAdvisor }}
+{{- $appName := "cadvisor" }}
+{{- $filePath := printf "values/%s.yaml" $appName -}}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ $app.name }}
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: {{ $app.namespace }}
+    server: {{ .Values.destination.server }}
+  project: default
+  source:
+    {{- if $app.source.path }}
+    path: {{ $app.source.path }}
+    {{- end }}
+    chart: {{ $app.source.chart }}
+    repoURL: {{ $app.source.repoURL }}
+    targetRevision: {{ $app.source.targetRevision }}
+    helm:
+      values: |
+        {{- .Files.Get $filePath |nindent 8 }}
+  syncPolicy: {}

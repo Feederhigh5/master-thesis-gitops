@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: debug-pod
-  namespace: prometheus
+  namespace: logging
 spec:
   replicas: 1
   selector:
@@ -13,20 +13,25 @@ spec:
       labels:
         app: debug-pod
     spec:
-      securityContext:
-        fsGroup: 65534
-        runAsGroup: 65534
-        runAsNonRoot: false
-        runAsUser: 65534
       containers:
         - name: debug-pod
           image: centos:latest
           command: ["/bin/sh"]
           args: ["-ec", "while :; do echo .; sleep 5;done"]
           volumeMounts:
-            - name: datadir
-              mountPath: "/volume"
+            - name: datadir0
+              mountPath: "/volume/0"
+            - name: datadir1
+              mountPath: "/volume/1"
+            - name: datadir2
+              mountPath: "/volume/2"
       volumes:
-        - name: datadir
+        - name: datadir0
           persistentVolumeClaim:
-            claimName: prometheus-server
+            claimName: elasticsearch-master-elasticsearch-master-0
+        - name: datadir1
+          persistentVolumeClaim:
+            claimName: elasticsearch-master-elasticsearch-master-1
+        - name: datadir2
+          persistentVolumeClaim:
+            claimName: elasticsearch-master-elasticsearch-master-2

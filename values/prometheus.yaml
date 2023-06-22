@@ -242,7 +242,26 @@ server:
 
   ## Additional InitContainers to initialize the pod
   ##
-  extraInitContainers: []
+  extraInitContainers: #[]
+    - command:
+        - chown
+        - '-R'
+        - '65534:65534'
+        - /data
+      image: 'docker.io/library/busybox:1.31.1'
+      imagePullPolicy: IfNotPresent
+      name: init-chown-data
+      securityContext:
+        capabilities:
+          add:
+            - CHOWN
+        runAsNonRoot: false
+        runAsUser: 0
+        seccompProfile:
+          type: RuntimeDefault
+      volumeMounts:
+        - mountPath: /data
+          name: storage-volume
 
   ## Additional Prometheus server Volume mounts
   ##
@@ -584,6 +603,7 @@ server:
     runAsNonRoot: true
     runAsGroup: 65534
     fsGroup: 65534
+    fsGroupChangePolicy: "OnRootMismatch"
 
   ## Security context to be added to server container
   ##
@@ -655,7 +675,66 @@ serverFiles:
 
   ## Records configuration
   ## Ref: https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/
-  recording_rules.yml: {}
+  recording_rules.yml: 
+    "groups":
+    - "name": "node-exporter.rules"
+      "rules":
+      - "expr": |
+          count without (cpu) (
+            count without (mode) (
+              node_cpu_seconds_total{job="kubernetes-service-endpoints"}
+            )
+          )
+        "record": "instance:node_num_cpu:sum"
+      - "expr": |
+          1 - avg without (cpu, mode) (
+            rate(node_cpu_seconds_total{job="kubernetes-service-endpoints", mode="idle"}[1m])
+          )
+        "record": "instance:node_cpu_utilisation:rate1m"
+      - "expr": |
+          (
+            node_load1{job="kubernetes-service-endpoints"}
+          /
+            instance:node_num_cpu:sum{job="kubernetes-service-endpoints"}
+          )
+        "record": "instance:node_load1_per_cpu:ratio"
+      - "expr": |
+          1 - (
+            node_memory_MemAvailable_bytes{job="kubernetes-service-endpoints"}
+          /
+            node_memory_MemTotal_bytes{job="kubernetes-service-endpoints"}
+          )
+        "record": "instance:node_memory_utilisation:ratio"
+      - "expr": |
+          rate(node_vmstat_pgmajfault{job="kubernetes-service-endpoints"}[1m])
+        "record": "instance:node_vmstat_pgmajfault:rate1m"
+      - "expr": |
+          rate(node_disk_io_time_seconds_total{job="kubernetes-service-endpoints", device!=""}[1m])
+        "record": "instance_device:node_disk_io_time_seconds:rate1m"
+      - "expr": |
+          rate(node_disk_io_time_weighted_seconds_total{job="kubernetes-service-endpoints", device!=""}[1m])
+        "record": "instance_device:node_disk_io_time_weighted_seconds:rate1m"
+      - "expr": |
+          sum without (device) (
+            rate(node_network_receive_bytes_total{job="kubernetes-service-endpoints", device!="lo"}[1m])
+          )
+        "record": "instance:node_network_receive_bytes_excluding_lo:rate1m"
+      - "expr": |
+          sum without (device) (
+            rate(node_network_transmit_bytes_total{job="kubernetes-service-endpoints", device!="lo"}[1m])
+          )
+        "record": "instance:node_network_transmit_bytes_excluding_lo:rate1m"
+      - "expr": |
+          sum without (device) (
+            rate(node_network_receive_drop_total{job="kubernetes-service-endpoints", device!="lo"}[1m])
+          )
+        "record": "instance:node_network_receive_drop_excluding_lo:rate1m"
+      - "expr": |
+          sum without (device) (
+            rate(node_network_transmit_drop_total{job="kubernetes-service-endpoints", device!="lo"}[1m])
+          )
+        "record": "instance:node_network_transmit_drop_excluding_lo:rate1m"
+
   ## DEPRECATED DEFAULT VALUE, unless explicitly naming your files, please use recording_rules.yml
   rules: {}
 
@@ -756,7 +835,6 @@ serverFiles:
             regex: (.+)
             target_label: __metrics_path__
             replacement: /api/v1/nodes/$1/proxy/metrics
-
 
       - job_name: 'kubernetes-nodes-cadvisor'
 
@@ -1158,6 +1236,33 @@ extraScrapeConfigs: |
     - action: labelmap
       regex: __tmp_pod_label_(.+)  
 
+  - job_name: 'chaos-exporter'
+    static_configs:
+      - targets: ['chaos-exporter.litmus.svc.cluster.local:8080']
+    relabel_configs:
+      - target_label: instance
+        replacement: 'chaos-exporter-service'
+  
+  # - job_name: 'cadvisor'
+  #   static_configs:
+  #     - targets: ['cadvisor.cadvisor.svc.cluster.local:8080']
+  #   relabel_configs:
+  #     - action: labelmap
+  #       regex: __meta_kubernetes_node_label_(.+)
+  #     - source_labels:
+  #       - name
+  #       target_label: container
+  #     - source_labels:
+  #       - container_label_io_kubernetes_pod_namespace
+  #       target_label: namespace
+  #     - source_labels:
+  #       - container_label_io_kubernetes_pod_name
+  #       target_label: pod
+
+  # - job_name: node
+  #   static_configs:
+  #   - targets: ['prometheus-prometheus-node-exporter:9100']
+  # 
   # - job_name: 'prometheus-blackbox-exporter'
   #   metrics_path: /probe
   #   params:
