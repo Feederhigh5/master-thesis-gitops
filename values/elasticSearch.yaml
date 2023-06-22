@@ -158,9 +158,25 @@ extraContainers: []
 #   command: ['do', 'something']
 
 extraInitContainers: []
-# - name: do-something
-#   image: busybox
-#   command: ['do', 'something']
+  - command:
+      - chown
+      - '-R'
+      - '1000:1000'
+      - /usr/share/elasticsearch/data
+    image: 'docker.io/library/busybox:1.31.1'
+    imagePullPolicy: IfNotPresent
+    name: init-chown-data
+    securityContext:
+      capabilities:
+        add:
+          - CHOWN
+      runAsNonRoot: false
+      runAsUser: 0
+      seccompProfile:
+        type: RuntimeDefault
+    volumeMounts:
+      - mountPath: /usr/share/elasticsearch/data
+        name: elasticsearch-master
 
 # This is the PriorityClass settings as defined in
 # https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/#priorityclass
