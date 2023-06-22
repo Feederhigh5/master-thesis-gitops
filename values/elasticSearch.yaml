@@ -157,7 +157,7 @@ extraContainers: []
 #   image: busybox
 #   command: ['do', 'something']
 
-extraInitContainers: []
+extraInitContainers: #[]
   - command:
       - chown
       - '-R'
