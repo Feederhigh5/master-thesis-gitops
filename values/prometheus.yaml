@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # server:
 #  persistentVolume:
 #    existingClaim: prometheus-server
@@ -262,6 +263,7 @@ server:
       volumeMounts:
         - mountPath: /data
           name: storage-volume
+
   ## Additional Prometheus server Volume mounts
   ##
   extraVolumeMounts: []
@@ -1192,7 +1194,7 @@ extraScrapeConfigs: |
       - __meta_kubernetes_pod_container_port_name
       - __meta_kubernetes_pod_label_linkerd_io_control_plane_ns
       action: keep
-      regex: ^{{default .Values.proxyContainerName "linkerd-proxy" .Values.proxyContainerName}};linkerd-admin;{{.Values.linkerdNamespace}}$
+      regex: ^linkerd-proxy;linkerd-admin;linkerd$
     - source_labels: [__meta_kubernetes_namespace]
       action: replace
       target_label: namespace
@@ -1233,7 +1235,7 @@ extraScrapeConfigs: |
       regex: __tmp_pod_label_linkerd_io_(.+)
     # Copy tmp labels into real labels
     - action: labelmap
-      regex: __tmp_pod_label_(.+)  
+      regex: __tmp_pod_label_(.+)
 
   - job_name: 'chaos-exporter'
     static_configs:
@@ -1322,7 +1324,6 @@ alertmanager:
     runAsNonRoot: true
     runAsGroup: 65534
     fsGroup: 65534
-
 
 ## kube-state-metrics sub-chart configurable values
 ## Please see https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-state-metrics
