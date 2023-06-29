@@ -62,7 +62,7 @@ enablePodAntiAffinity: false
 enablePSP: false
 
 # -- url of external prometheus instance
-prometheusUrl: ""
+prometheusUrl: "prometheus-server.prometheus.svc.cluster.local:80"
 
 # -- url of external jaeger instance
 # Set this to `jaeger.linkerd-jaeger.svc.<clusterDomain>:16686` if you plan to use jaeger extension
