@@ -1,6 +1,5 @@
-{{- if .Values.apps.cAdvisor }}
-{{- $app := .Values.apps.cAdvisor }}
-{{- $appName := "cadvisor" }}
+{{- $app := .Values.apps.bankOfAnthos }}
+{{- $appName := "bank-of-anthos" }}
 {{- $filePath := printf "values/%s.yaml" $appName -}}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -25,4 +24,3 @@ spec:
       values: |
         {{- .Files.Get $filePath |nindent 8 }}
   syncPolicy: {}
-{{- end }}
