@@ -6,6 +6,13 @@ apps:
       chart: argo-cd
       repoURL: https://argoproj.github.io/argo-helm
       targetRevision: 5.31.0
+  bankOfAnthos:
+    name: bank-of-anthos
+    namespace: bank
+    source:
+      chart: bank-of-anthos
+      repoURL: https://feederhigh5.github.io/helm/
+      targetRevision: 0.1.2
   elasticSearch:
     name: elastic-search
     namespace: logging
@@ -62,13 +69,13 @@ apps:
       chart: grafana
       repoURL: https://grafana.github.io/helm-charts
       targetRevision: 6.56.4
-  cAdvisor:
-    name: cadvisor
-    namespace: cadvisor
-    source:
-      chart: cadvisor
-      repoURL: https://ckotzbauer.github.io/helm-charts
-      targetRevision: 2.2.4
+  # cAdvisor:
+  #   name: cadvisor
+  #   namespace: cadvisor
+  #   source:
+  #     chart: cadvisor
+  #     repoURL: https://ckotzbauer.github.io/helm-charts
+  #     targetRevision: 2.2.4
 destination:
     server: https://kubernetes.default.svc
 logging: true
