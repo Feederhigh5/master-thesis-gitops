@@ -166,8 +166,8 @@ downloadDashboards:
   #      name: configmap-name
   #      key: value_key
 
-podAnnotations: {}
-  # linkerd.io/inject: enabled
+podAnnotations:
+  linkerd.io/inject: enabled
 
 ## Pod Labels
 # podLabels: {}
