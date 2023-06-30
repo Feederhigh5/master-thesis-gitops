@@ -821,7 +821,7 @@ grafana.ini:
     mode: console
   log.console:
     format: text
-    level: info
+    level: debug
   grafana_net:
     url: https://grafana.net
   server:
