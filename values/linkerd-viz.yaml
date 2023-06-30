@@ -62,7 +62,7 @@ enablePodAntiAffinity: false
 enablePSP: false
 
 # -- url of external prometheus instance
-prometheusUrl: "prometheus-server.prometheus.svc.cluster.local:80"
+prometheusUrl: "http://prometheus-server.prometheus.svc.cluster.local:80"
 
 # -- url of external jaeger instance
 # Set this to `jaeger.linkerd-jaeger.svc.<clusterDomain>:16686` if you plan to use jaeger extension
@@ -393,7 +393,7 @@ grafana:
   # Linkerd viz web dashboard to provide direct links to specific Grafana
   # dashboards. Cannot be set if grafana.externalUrl is set. See the [Linkerd
   # documentation](https://linkerd.io/2/tasks/grafana) for more information
-  url: grafana.local/grafana
+  url: http://grafana.local/grafana
   # -- url of a Grafana instance hosted off-cluster. Cannot be set if
   # grafana.url is set. The reverse proxy will not be used for this URL.
   externalUrl:
