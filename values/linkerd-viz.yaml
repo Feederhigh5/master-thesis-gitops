@@ -393,10 +393,10 @@ grafana:
   # Linkerd viz web dashboard to provide direct links to specific Grafana
   # dashboards. Cannot be set if grafana.externalUrl is set. See the [Linkerd
   # documentation](https://linkerd.io/2/tasks/grafana) for more information
-  url: http://grafana.local/grafana
+  url: 
   # -- url of a Grafana instance hosted off-cluster. Cannot be set if
   # grafana.url is set. The reverse proxy will not be used for this URL.
-  externalUrl:
+  externalUrl: http://grafana.local/grafana
   # -- prefix for Grafana dashboard UID's, used when grafana.externalUrl is
   # set.
   uidPrefix:
