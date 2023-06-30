@@ -42,7 +42,8 @@ statefulsets:
     
     replicas: 1
 
-    podAnnotations: {}
+    podAnnotations:
+      linkerd.io/inject: enabled
 
     serviceAccountName: default
 
@@ -104,7 +105,8 @@ statefulsets:
     
     replicas: 1
 
-    podAnnotations: {}
+    podAnnotations:
+      linkerd.io/inject: enabled
 
     serviceAccountName: default
 
@@ -157,7 +159,8 @@ deployments:
     name: balancereader
     app: balancereader
     
-    podAnnotations: {}
+    podAnnotations: 
+      linkerd.io/inject: enabled
 
     serviceAccountName: default
     
@@ -274,7 +277,8 @@ deployments:
     name: contacts
     app: contacts
     
-    podAnnotations: {}
+    podAnnotations:
+      linkerd.io/inject: enabled
 
     serviceAccountName: default
     
@@ -366,7 +370,8 @@ deployments:
 
     app: frontend
 
-    podAnnotations: {}
+    podAnnotations:
+      linkerd.io/inject: enabled
 
     serviceAccountName: default
 
@@ -505,7 +510,8 @@ deployments:
 
     app: ledgerwriter
 
-    podAnnotations: {}
+    podAnnotations:
+      linkerd.io/inject: enabled
 
     serviceAccountName: default
 
@@ -614,7 +620,8 @@ deployments:
     
     app: transactionhistory
     
-    podAnnotations: {}
+    podAnnotations:
+      linkerd.io/inject: enabled
 
     serviceAccountName: default
     
@@ -733,7 +740,8 @@ deployments:
 
     app: userservice
 
-    podAnnotations: {}
+    podAnnotations:
+      linkerd.io/inject: enabled
 
     serviceAccountName: default
 
@@ -835,6 +843,7 @@ deployments:
 
     podAnnotations: 
       sidecar.istio.io/rewriteAppHTTPProbers: "true"
+      linkerd.io/inject: enabled
 
     serviceAccountName: default
 
