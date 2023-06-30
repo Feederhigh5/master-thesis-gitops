@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 # -- sets the version of bank-of-anthos that should be deployed (sets the image tags)
-appVersion: "v0.5.10"
+appVersion: "v0.5.3"
 
 nameOverride: ""
 fullnameOverride: ""
@@ -42,8 +42,7 @@ statefulsets:
     
     replicas: 1
 
-    podAnnotations:
-      linkerd.io/inject: enabled
+    podAnnotations: {}
 
     serviceAccountName: default
 
@@ -105,8 +104,7 @@ statefulsets:
     
     replicas: 1
 
-    podAnnotations:
-      linkerd.io/inject: enabled
+    podAnnotations: {}
 
     serviceAccountName: default
 
@@ -159,8 +157,7 @@ deployments:
     name: balancereader
     app: balancereader
     
-    podAnnotations: 
-      linkerd.io/inject: enabled
+    podAnnotations: {}
 
     serviceAccountName: default
     
@@ -277,8 +274,7 @@ deployments:
     name: contacts
     app: contacts
     
-    podAnnotations:
-      linkerd.io/inject: enabled
+    podAnnotations: {}
 
     serviceAccountName: default
     
@@ -370,8 +366,7 @@ deployments:
 
     app: frontend
 
-    podAnnotations:
-      linkerd.io/inject: enabled
+    podAnnotations: {}
 
     serviceAccountName: default
 
@@ -497,7 +492,7 @@ deployments:
 
     service:
       name: frontend
-      type: ClusterIP
+      type: LoadBalancer
       ports:
         - name: http
           port: 80
@@ -510,8 +505,7 @@ deployments:
 
     app: ledgerwriter
 
-    podAnnotations:
-      linkerd.io/inject: enabled
+    podAnnotations: {}
 
     serviceAccountName: default
 
@@ -620,8 +614,7 @@ deployments:
     
     app: transactionhistory
     
-    podAnnotations:
-      linkerd.io/inject: enabled
+    podAnnotations: {}
 
     serviceAccountName: default
     
@@ -740,8 +733,7 @@ deployments:
 
     app: userservice
 
-    podAnnotations:
-      linkerd.io/inject: enabled
+    podAnnotations: {}
 
     serviceAccountName: default
 
@@ -843,7 +835,6 @@ deployments:
 
     podAnnotations: 
       sidecar.istio.io/rewriteAppHTTPProbers: "true"
-      linkerd.io/inject: enabled
 
     serviceAccountName: default
 
