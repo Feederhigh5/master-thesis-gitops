@@ -228,6 +228,7 @@ ingress:
   ingressClassName: nginx
   # Values can be templated
   annotations: {}
+    nginx.ingress.kubernetes.io/service-upstream: "true"
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   labels: {}
