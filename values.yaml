@@ -47,14 +47,14 @@ apps:
     source:
       chart: linkerd-control-plane
       repoURL: https://helm.linkerd.io/stable
-      targetRevision: 1.12.3
+      targetRevision: 1.12.5
   linkerdViz:
     name: linkerd-viz
     namespace: linkerd-viz
     source:
       chart: linkerd-viz
       repoURL: https://helm.linkerd.io/stable
-      targetRevision: 30.8.3
+      targetRevision: 30.8.5
   litmus:
     name: litmus
     namespace: litmus
