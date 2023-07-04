@@ -1243,6 +1243,14 @@ extraScrapeConfigs: |
       - target_label: instance
         replacement: 'chaos-exporter-service'
   
+  - job_name: 'argocd'
+    static_configs:
+      - targets: ['argo-argocd-server-metrics.argocd.svc.cluster.local:8083']
+    relabel_configs:
+      - target_label: instance
+        replacement: 'argocd-metrics'
+
+
   # - job_name: 'cadvisor'
   #   static_configs:
   #     - targets: ['cadvisor.cadvisor.svc.cluster.local:8080']
