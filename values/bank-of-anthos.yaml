@@ -112,7 +112,7 @@ statefulsets:
 
     container:
       
-      name: postgres
+      name: ledger-db
 
       ports:
         - containerPort: 5432
