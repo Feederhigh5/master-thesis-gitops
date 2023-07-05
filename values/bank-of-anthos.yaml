@@ -626,6 +626,8 @@ deployments:
     serviceAccountName: default
     
     terminationGracePeriodSeconds: 5
+
+    replicas: 2
     
     podSecurityContext:
       fsGroup: 1000
@@ -744,6 +746,8 @@ deployments:
       linkerd.io/inject: enabled
 
     serviceAccountName: default
+
+    replicas: 2
 
     terminationGracePeriodSeconds: 5
 
