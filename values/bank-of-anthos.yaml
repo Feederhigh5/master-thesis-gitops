@@ -375,6 +375,8 @@ deployments:
 
     serviceAccountName: default
 
+    replicas: 2
+
     terminationGracePeriodSeconds: 5
 
     podSecurityContext:
