@@ -1,0 +1,43 @@
+apiVersion: linkerd.io/v1alpha2
+kind: ServiceProfile
+metadata:
+  name: frontend.bank2.svc.cluster.local
+  namespace: bank2
+spec:
+  routes:
+  - condition:
+      method: POST
+      pathRegex: /signup
+    name: POST /signup
+  - condition:
+      method: GET
+      pathRegex: /login
+    name: GET /login
+  - condition:
+      method: GET
+      pathRegex: /signup
+    name: GET /signup
+  - condition:
+      method: GET
+      pathRegex: /home
+    name: GET /home
+  - condition:
+      method: POST
+      pathRegex: /payment
+    name: POST /payment
+  - condition:
+      method: POST
+      pathRegex: /deposit
+    name: POST /deposit
+  - condition:
+      method: POST
+      pathRegex: /logout
+    name: POST /logout
+  - condition:
+      method: POST
+      pathRegex: /login
+    name: POST /login
+  - condition:
+      method: GET
+      pathRegex: /
+    name: GET /
