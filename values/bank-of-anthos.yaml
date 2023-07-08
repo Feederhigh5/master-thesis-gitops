@@ -749,7 +749,7 @@ deployments:
 
     serviceAccountName: default
 
-    replicas: 2
+    replicas: 4
 
     terminationGracePeriodSeconds: 5
 
