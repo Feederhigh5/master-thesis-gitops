@@ -3,10 +3,8 @@
 # Declare variables to be passed into your templates.
 # -- sets the version of bank-of-anthos that should be deployed (sets the image tags)
 appVersion: "v0.5.10"
-
 nameOverride: ""
 fullnameOverride: ""
-
 # -- This secret contains a keypair used to sign and verify JWTs for authentication. In practice, this should never be checked into version control. It is provided here to simplify deployment
 # **JWT Key Pair Secret**
 # Bank of Anthos uses [Json Web Tokens (JWTs)](https://jwt.io/introduction/) to handle user authentication.
@@ -25,39 +23,24 @@ secret:
   jwtRS256Key: "LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JSUpRZ0lCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQ1N3d2dna29BZ0VBQW9JQ0FRRE9JUzVpS3NKN1l5YVIKN2hIR2VKUW9uazZsWExVZTNVZTYrdnJMSmRjZGZxeDZBUlpYUndQS2FZaGhSOGJyV2s0SlF6WVJQVkwxb1htSApMdlRYeGx3WTlncGo2VXFUa3VGZm1Qdmk3aWhRMkNTczBtZGs3UmlQS1lWZTVDMWZOcERicndwaUIxYXlpNWZNCjk0SEZtMERKMDBaZDUrTS9OTXpWejZ5TnpuUUdGWFhkVm1qaWNTa3hURTdzZWhvSFppL2QzV2xIa2oydzVvODQKbzlrd2F5VUhNNmtySmw4ekdiaUQzT2czcmgvZTVadC9QODZtYzUvU2lJb2NkaWphT2ZqZzJhNjg1YWMxeFVZMQp0czRMYXpyWHlXYXQ2QkpqVllSNVVNM2V5clZPQ016dDNYbytwMVhndktibWNRZU9MVHNnZDA2Y09vanArMEI4ClUrQS9Db1Urb2JLYjR6UWRnc0pkcUUvb2I4Uk5ibWVsTGg5bWVnMEF4UkROUVcyUXZDdWVOZi9hZzV0emRGcXAKYmYxbHhiT3hkUWowc3FnMUFzbUZTcktmajRPSVhuT0RianNiQWZqVnlINzBka2lpd2s3Q0Q2Q0loY3IzdlZyRgpLUVJDa1VQWkcyRW1DbjF5dVo1UzZvTm9YajZBcWZ5SXBETm4rcUdGRzR6S3JZcHRacjUzT3JWNWRKUFlmSkJGCnE3SCtxN1hoTzF3akJ1bC9IclZiL2tSMnNMVEc0d3NHTWFPY1pGZS9zYklhNysxZmlzV3ZCVks0WFJ1WWtkWXMKeU9qK05PaDQxYkZraEdZby9FT2taRzZPUURwVGkxNFRkb2dSUVAvMHNaNWsyajJUUE5sWmsrVXJKUG9xQTNhUwpVRWFkRCtNTWJxaDBWOUZHblRHU3Y0VWtJZHdkRVFJREFRQUJBb0lCLzM5UDZFODA1NEN1QTMyc0dGd3RHTENaCktKb0hoanNlZm96eW9CMEI5cmpzVDZpNDR6RkpWcmwwd3EzM2U3VGN4bHFTTkFkSXJadG9rRmI1d3J0Q3ZTMFMKSlZRbkhCaWdpdktlU0ZCeEE0TkdzMDN2TDNHdGRkdDJZdENFZE5QY0wrREl5L0RwSEFWdmJlS3hoVVdBb01wUQpMTWc4WU84Q0loMElUbTJIYzhIRkRTNFgxNGJ5VCtYQW9xd3d0T2R6NFdFdDRjaUN5RUN6dUwxSjBUUnJIWEZYCmtEUzBNeFBSVE1NM0szWW1MdC94UjRsT1ZEYXN3Um04TGFPMFRoVFdkT3lpWWVneTVvT3h4SWsvWVd5NXk4Q0EKS3hzVkt6UDgwa1Z0OTVUY2g3V0lmb29aZWpMUE5WU2JlWEQ3RVJacXduZmE3MTRLVW1YNitQdUlFcHNtV09BWQpJQWFqZE0zU01TOGNFRHUzcnpmMDR3ZXlka0EvTjR2Z3U2R0ZHOGs2RTVWb211S0E4ZEFMNnRXd3JwSm9GUy9TCnFTVmovc0JhZ0hLcHRWWkp1cmlKWVkzcllVRWdTeld4YythS1JYdTBkb20reUh5cE16RTJJVkxkaTNvYkRSZjIKU3p1ejdBSnk1WURud3Vray82aW1MM2dITm52U2tzb05VYTNLWlpEOVI2b2lMaGNuYkxhd3QvNmd3ZS9NTElabgpPdU5ucXhqSVN1VGhER3BDbExZMzBYdHVKajZLZXdKUnFlMnowTDVSdDd6U01saWNHR3RCZTRGY3dhb1UzQUI5ClVTc1pvMXlieGR3T05FSllLUXFZdGp1YkorYjBzRUJkMXVxRjZPc0wrb0paNU9uZ3VJZVFHYkYyODNMa3c5VWEKVmN5NHozSk1vSlczU2cwUXRnRUNnZ0VCQU9NamdCSHdvTDhXRWZYRjBPV3lIUGF3TDkwVXcyYnp6YTRGQzVCNAp6YWNSa2dkdEppaDR5LzI5TlA3RUxHYUZlS3hXa0d6M2RobEJqc2JRRy9XY0FEMndJQlkxN1plcUwzZHYzUEtQCk9WN2Jic00rL0wvY2xpSG80Nnd0TEE2aWR2T09lMCtMZENHeXpHYVlaRHRYTTkvTVNqeGU1YWZPbklWb3VibTAKOEk2U1dqZUdtSHY2OGMyUlFIYmZxWTU0VXIwMjBiUnNFeVJxTHVtTWxUc3N1WERIUExwODN4RkkyK2RkRlg2agp0WXNsdVErcEJaR1kvcW5NcVplTzVhUjBXdEdkVXNuSHMvMWd1aWdkNC9sOTJFMXRvVHZ3R2JBeFRWdzdQOWNUCmNBMTc3UzdRTnNnR2hZT05VYkcrR0luSWh0VWY2dXRzSG5GcFNvTktMZm9Rd2dFQ2dnRUJBT2hTU1RPVUNzcisKZUNxemhFeU12QWN4eXAxN3BwaWZOVWRBbDkyVmlYUHo2b1lTcTU5QTJLZ2hUQkt0dTlvdWJwamRBQTJMMndyeQp1VE9BclNkRzZYM2FlS3ZYUmVUUXdpNExPWldTMVptMzR2Ly9DdyszRkU5clo4NEkvODFXSXI2eGxFR3lzZkRKCnd1TFhKZUpmMlMxK0lRK29penFhd1JBMGJxNDhnRGs3aFJPQ2VlaW9Ka3FicXp3d3lMT0lkeU1iejRrRFFIeS8KNVl5ODF2L1dlbVRKV29oeHlXZXZKMnY1SFU4ZnIxeE9qZUxyTjNQUVlxcGVhSmwxZGcySCtZcmlSZTdxY1BRVwpMeHRhaFViL0tlTXFUT2pMVkg3V0dHdDgyaWFXdVd4a1FkWnhVWW9OcnVIYlJ6RlJDN3hxVkJYWDJ1OUo4L0FMCjh6TDNMZGdKT3hFQ2dnRUJBSThjTXZrYXIyMDJMcUszdkdLODBscnJyM3lRTkgyTlp5NFpwNnVqTVkvdUZoL3YKdVhjT2hSaWVPZUc3SUc2SDhmeERua1BKdHZNNnh3YWs0TGpqVFpPUWdPYjltM0ZQblJDWHZwSmxnelFzOWFDMgo4dkMvdnlnbVlDeC9XWjd1NWh1V3prTFVEcHVjMkFSY1IrckxpcmViTTdyTjM4elc5TzlwaUh0bGNadWl3b3p4CmxPbW90dWxhZDA5dXBKcExYWFl5TC9hSmtaWUVBUUxOdk1qSDZSOFJxVVdtbjdWNFBuV0x4SnRCOG9SMWhDQkYKMG1obUNTNWE4USs0elIvTTM5dnFUOXNxcEZFa3ZLWENEMzJHdU40d0VNSi9DUEJtWCtPWXdTUjE3c2ZRS1NTeApzNUpiNll0MVl0K21jamQ5ek5aRGdmUks3dk50NzdEQThDNzZtQUVDZ2dFQkFMd2V4WCtxaFFMVEErTXY4aFU2CmNKY3l6bXF2VWJ1TVQ4d2VsZHFyMTkyNHlWTS9reEVscFVxZmk4WWtRRlR2L0VaenpqTXA2SGo1Q3RhVmY2Q3EKWHkrMTFManhYSHRvUDVTaEtrUGYzbTdXNUUxKzdDb1JpYlMxdUJ5eVZOQ2t5d1czTGVIMUhQbHBweEdnUGVFTQoxQU51ZXI3L0w1Nkk2WVNCc0k0T0Y1WkFpQVhBUlk4TGVkWTRMM1JSM0hMa01mU1A5SUZ4ektvM2lWMXBISCtWCjRRM3pyZ2VHZkJ3bFRMcTF3ZkhzS2tlSXBJUDNDN1FRTFpUZlZidk56WVl2Y1BYeE84ZTJ0emd2TG4zcjByZ20Kcm5od0xFN2xOc3B0K3VBdS9VYjZEYk9qaTF4bDdpem4zNUNyeXY0NExsU25sT2NMSHhGY3hOYkFGbkpTalNDKwplTUVDZ2dFQUdLckM2RkovT2g2cGdRaHoyQitmQU9iQU4yK1hGVFVJdmd0R3VRcVg1RU5BZVNNeEJYdXFTenE2ClhJMS9lZVM4dG84U2lLNXRIakJON2Y1eWk5dGcwR3g3MDVTTkNBaG9UYjEzTlZRUjg4V2lFN3lZS3pIV1gxMkYKUkcxYnJBZi9nc0NpeDRmUEViRUlHcmVKdzhDcm5ldUN0U2tCMFh5NXI3cHB3cTFGL0ZrRHowdkxHampxMXd6QgpnQmJnamR2emZidEorbWtONFF1YUZqWXkyaWhEd3FYN1plMzRnamIzcWYvUmFGclAyejNqbDZGTU9BdFI5aWJ5CkVPMVgrcVVPb2pIdjVCZndUdVNsVHd6TVZQZW9iSUJUa1M3ZXRFTlZuYW5rSUFYalF6aWw1T245V3JwaUlXNXIKdFlJMXhuYWtZZkdkTzZrbDhwUCsybUFwdFJZWlBnPT0KLS0tLS1FTkQgUFJJVkFURSBLRVktLS0tLQo="
   # -- JWT public key
   jwtRS256KeyPub: "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQ0lqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FnOEFNSUlDQ2dLQ0FnRUF6aUV1WWlyQ2UyTW1rZTRSeG5pVQpLSjVPcFZ5MUh0MUh1dnI2eXlYWEhYNnNlZ0VXVjBjRHltbUlZVWZHNjFwT0NVTTJFVDFTOWFGNWh5NzAxOFpjCkdQWUtZK2xLazVMaFg1ajc0dTRvVU5na3JOSm5aTzBZanltRlh1UXRYemFRMjY4S1lnZFdzb3VYelBlQnhadEEKeWROR1hlZmpQelRNMWMrc2pjNTBCaFYxM1ZabzRuRXBNVXhPN0hvYUIyWXYzZDFwUjVJOXNPYVBPS1BaTUdzbApCek9wS3laZk14bTRnOXpvTjY0ZjN1V2Jmei9PcG5PZjBvaUtISFlvMmpuNDRObXV2T1duTmNWR05iYk9DMnM2CjE4bG1yZWdTWTFXRWVWRE4zc3ExVGdqTTdkMTZQcWRWNEx5bTVuRUhqaTA3SUhkT25EcUk2ZnRBZkZQZ1B3cUYKUHFHeW0rTTBIWUxDWGFoUDZHL0VUVzVucFM0Zlpub05BTVVRelVGdGtMd3JualgvMm9PYmMzUmFxVzM5WmNXegpzWFVJOUxLb05RTEpoVXF5bjQrRGlGNXpnMjQ3R3dINDFjaCs5SFpJb3NKT3dnK2dpSVhLOTcxYXhTa0VRcEZECjJSdGhKZ3A5Y3JtZVV1cURhRjQrZ0tuOGlLUXpaL3FoaFJ1TXlxMktiV2ErZHpxMWVYU1QySHlRUmF1eC9xdTEKNFR0Y0l3YnBmeDYxVy81RWRyQzB4dU1MQmpHam5HUlh2N0d5R3UvdFg0ckZyd1ZTdUYwYm1KSFdMTWpvL2pUbwplTld4WklSbUtQeERwR1J1amtBNlU0dGVFM2FJRVVELzlMR2VaTm85a3p6WldaUGxLeVQ2S2dOMmtsQkduUS9qCkRHNm9kRmZSUnAweGtyK0ZKQ0hjSFJFQ0F3RUFBUT09Ci0tLS0tRU5EIFBVQkxJQyBLRVktLS0tLQo="
-
-
-
-
 # -- values for the statefulsets accounts-db and ledger-db
 statefulsets:
   # -- configuration for accountsdb statefulset
   accountsdb:
-    
     name: accounts-db
-
     app: accounts-db
-
     serviceName: "accounts-db"
-    
     replicas: 1
-
     podAnnotations:
       linkerd.io/inject: enabled
-
     serviceAccountName: default
-
     container:
-    
       name: accounts-db
-    
       ports:
         - containerPort: 5432
           name: postgredb
-      
       # -- version tag is set by appVersion value
       image: gcr.io/bank-of-anthos-ci/accounts-db
-      
       envFrom: |
         - configMapRef:
             name: {{ $.Values.configMaps.environment.name }}
@@ -65,7 +48,6 @@ statefulsets:
             name: {{ $.Values.configMaps.accountsdb.name }}
         - configMapRef:
             name: {{ $.Values.configMaps.demoData.name }}
-      
       resources:
         requests:
           cpu: 100m
@@ -73,16 +55,13 @@ statefulsets:
         limits:
           cpu: 250m
           memory: 512Mi
-
       volumeMounts:
         - name: postgresdb
           mountPath: /var/lib/postgresql/data
           subPath: postgres
-    
     volumes:
       - name: postgresdb
         emptyDir: {}
-
     service:
       name: accounts-db
       ports:
@@ -90,36 +69,23 @@ statefulsets:
           targetPort: 5432
           name: tcp
           protocol: TCP
-
     additionalLabels:
       tier: db
-
   # -- configuration for ledger-db statefulset
   ledger-db:
-
     name: ledger-db
-
     app: ledger-db
-
     serviceName: "ledger-db"
-    
     replicas: 1
-
     podAnnotations:
       linkerd.io/inject: enabled
-
     serviceAccountName: default
-
     container:
-      
       name: ledger-db
-
       ports:
         - containerPort: 5432
-      
       # -- version tag is set by appVersion value
       image: gcr.io/bank-of-anthos-ci/ledger-db
-      
       envFrom: |
         - configMapRef:
             name: {{ $.Values.configMaps.environment.name }}
@@ -127,7 +93,6 @@ statefulsets:
             name: {{ $.Values.configMaps.ledgerdb.name }}
         - configMapRef:
             name: {{ $.Values.configMaps.demoData.name }}
-      
       resources:
         requests:
           cpu: 100m
@@ -135,46 +100,36 @@ statefulsets:
         limits:
           cpu: 250m
           memory: 1Gi
-
       volumeMounts:
         - name: postgresdb
           mountPath: /var/lib/postgresql/data
           subPath: postgres
-
     volumes:
       - name: postgresdb
         emptyDir: {}
-
     service:
       name: ledger-db
       ports:
         - name: tcp
           port: 5432
           targetPort: 5432
-
 # -- values for the deployments
 deployments:
   # -- configuration for balance-reader deployment
   balance-reader:
     name: balancereader
     app: balancereader
-    
-    podAnnotations: 
+    podAnnotations:
       linkerd.io/inject: enabled
-
     serviceAccountName: default
-    
     terminationGracePeriodSeconds: 5
-    
     podSecurityContext:
       fsGroup: 1000
       runAsGroup: 1000
       runAsNonRoot: true
       runAsUser: 1000
-    
     container:
       name: balancereader
-      
       securityContext:
         allowPrivilegeEscalation: false
         capabilities:
@@ -182,18 +137,14 @@ deployments:
             - all
         privileged: false
         readOnlyRootFilesystem: true
-      
       # -- version tag is set by appVersion value
       image: gcr.io/bank-of-anthos-ci/balancereader
-      
-
       volumeMounts:
         - name: publickey
           mountPath: "/tmp/.ssh"
           readOnly: true
         - mountPath: /tmp
           name: tmp
-      
       # -- envs are inserted as name/value pairs
       env:
         VERSION: "{{ $.Values.appVersion }}"
@@ -208,21 +159,18 @@ deployments:
         # -- Valid levels are debug, info, warn, error, fatal.
         # If no valid level is set, will default to info.
         LOG_LEVEL: "info"
-      
       # -- extraEnv are inserted directly as Yaml
       extraEnv:
         - name: NAMESPACE
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-      
       envFrom: |
         - configMapRef:
             name: {{ $.Values.configMaps.environment.name }}
         # add ledger-db credentials from ConfigMap
         - configMapRef:
             name: {{ $.Values.configMaps.ledgerdb.name }}
-      
       resources:
         requests:
           cpu: 100m
@@ -230,7 +178,6 @@ deployments:
         limits:
           cpu: 500m
           memory: 512Mi
-      
       readinessProbe:
         httpGet:
           path: /ready
@@ -238,7 +185,6 @@ deployments:
         initialDelaySeconds: 60
         periodSeconds: 5
         timeoutSeconds: 10
-      
       livenessProbe:
         httpGet:
           path: /healthy
@@ -246,24 +192,21 @@ deployments:
         initialDelaySeconds: 120
         periodSeconds: 5
         timeoutSeconds: 10
-      
       startupProbe:
         httpGet:
           path: /healthy
           port: 8080
         failureThreshold: 30
         periodSeconds: 10
-    
     volumes:
       - name: publickey
         secret:
           secretName: jwt-key
           items:
-          - key: jwtRS256.key.pub
-            path: publickey
+            - key: jwtRS256.key.pub
+              path: publickey
       - emptyDir: {}
         name: tmp
-  
     service:
       type: ClusterIP
       name: balancereader
@@ -271,28 +214,21 @@ deployments:
         - name: http
           port: 8080
           targetPort: 8080
-
   # -- configuration for contacts deployment
   contacts:
     name: contacts
     app: contacts
-    
     podAnnotations:
       linkerd.io/inject: enabled
-
     serviceAccountName: default
-    
     terminationGracePeriodSeconds: 5
-    
     podSecurityContext:
       fsGroup: 1000
       runAsGroup: 1000
       runAsNonRoot: true
       runAsUser: 1000
-    
     container:
       name: contacts
-      
       securityContext:
         allowPrivilegeEscalation: false
         capabilities:
@@ -300,17 +236,14 @@ deployments:
             - all
         privileged: false
         readOnlyRootFilesystem: true
-      
       # -- version tag is set by appVersion value
       image: gcr.io/bank-of-anthos-ci/contacts
-      
       volumeMounts:
         - name: publickey
           mountPath: "/tmp/.ssh"
           readOnly: true
         - mountPath: /tmp
           name: tmp
-      
       # -- envs are inserted as name/value pairs
       env:
         VERSION: "{{ $.Values.appVersion }}"
@@ -320,16 +253,13 @@ deployments:
         # -- Valid levels are debug, info, warn, error, fatal.
         # If no valid level is set, will default to info.
         LOG_LEVEL: "info"
-      
       # -- extraEnv are inserted directly as Yaml
       extraEnv: {}
-     
       envFrom: |
         - configMapRef:
             name: {{ $.Values.configMaps.environment.name }}
         - configMapRef:
             name: {{ $.Values.configMaps.accountsdb.name }}
-      
       resources:
         requests:
           cpu: 100m
@@ -337,7 +267,6 @@ deployments:
         limits:
           cpu: 250m
           memory: 128Mi
-      
       readinessProbe:
         httpGet:
           path: /ready
@@ -345,17 +274,15 @@ deployments:
         initialDelaySeconds: 60
         periodSeconds: 5
         timeoutSeconds: 10
-    
     volumes:
       - name: publickey
         secret:
           secretName: jwt-key
           items:
-          - key: jwtRS256.key.pub
-            path: publickey
+            - key: jwtRS256.key.pub
+              path: publickey
       - emptyDir: {}
         name: tmp
-    
     service:
       name: contacts
       type: ClusterIP
@@ -363,32 +290,23 @@ deployments:
         - name: http
           port: 8080
           targetPort: 8080
-
   # -- configuration for frontend deployment
   frontend:
     name: frontend
-
     app: frontend
-
     podAnnotations:
       linkerd.io/inject: enabled
       deployUpdateTest: "0"
-
     serviceAccountName: default
-
     replicas: 2
-
     terminationGracePeriodSeconds: 5
-
     podSecurityContext:
       fsGroup: 1000
       runAsGroup: 1000
       runAsNonRoot: true
       runAsUser: 1000
-
     container:
       name: frontend
-
       securityContext:
         allowPrivilegeEscalation: false
         capabilities:
@@ -396,23 +314,19 @@ deployments:
             - all
         privileged: false
         readOnlyRootFilesystem: true
-
       # -- version tag is set by appVersion value
       image: gcr.io/bank-of-anthos-ci/frontend
-
       # -- port previously not defined..?
       ports:
         - name: http
           containerPort: 8080
           protocol: TCP
-
       volumeMounts:
         - name: publickey
           mountPath: "/tmp/.ssh"
           readOnly: true
         - mountPath: /tmp
           name: tmp
-
       env:
         VERSION: "{{ $.Values.appVersion }}"
         PORT: "8080"
@@ -432,7 +346,6 @@ deployments:
         # METADATA_SERVER: "my-metadata-server"
         # -- Customize the pod zone if it cannot be retrieved from the metadata server
         #POD_ZONE: "my-zone"
-
       extraEnv:
         - name: DEFAULT_USERNAME
           valueFrom:
@@ -456,13 +369,11 @@ deployments:
               name: oauth-config
               key: DEMO_OAUTH_REDIRECT_URI
               optional: true
-      
       envFrom: |
         - configMapRef:
             name: {{ $.Values.configMaps.environment.name }}
         - configMapRef:
             name: {{ $.Values.configMaps.serviceApi.name }}
-
       resources:
         requests:
           cpu: 100m
@@ -470,7 +381,6 @@ deployments:
         limits:
           cpu: 250m
           memory: 128Mi
-
       readinessProbe:
         httpGet:
           path: /ready
@@ -478,7 +388,6 @@ deployments:
         initialDelaySeconds: 10
         periodSeconds: 5
         timeoutSeconds: 10
-        
       livenessProbe:
         httpGet:
           path: /ready
@@ -486,18 +395,15 @@ deployments:
         initialDelaySeconds: 60
         periodSeconds: 15
         timeoutSeconds: 30
-
     volumes:
       - name: publickey
         secret:
           secretName: jwt-key
           items:
-          - key: jwtRS256.key.pub
-            path: publickey
+            - key: jwtRS256.key.pub
+              path: publickey
       - emptyDir: {}
         name: tmp
-
-
     service:
       name: frontend
       type: ClusterIP
@@ -505,32 +411,22 @@ deployments:
         - name: http
           port: 80
           targetPort: 8080
-
   # -- configuration for ledgerwriter deployment
   ledger-writer:
-
     name: ledgerwriter
-
     app: ledgerwriter
-
     podAnnotations:
       linkerd.io/inject: enabled
-
     serviceAccountName: default
-
     terminationGracePeriodSeconds: 5
-
     podSecurityContext:
       securityContext:
       fsGroup: 1000
       runAsGroup: 1000
       runAsNonRoot: true
       runAsUser: 1000
-
     container:
-
       name: ledgerwriter
-
       securityContext:
         allowPrivilegeEscalation: false
         capabilities:
@@ -538,17 +434,14 @@ deployments:
             - all
         privileged: false
         readOnlyRootFilesystem: true
-
       # -- version tag is set by appVersion value
       image: gcr.io/bank-of-anthos-ci/ledgerwriter
-
       volumeMounts:
         - name: publickey
           mountPath: "/tmp/.ssh"
           readOnly: true
         - mountPath: /tmp
           name: tmp
-
       env:
         VERSION: "{{ $.Values.appVersion }}"
         PORT: "8080"
@@ -560,13 +453,11 @@ deployments:
         # Valid levels are debug, info, warn, error, fatal.
         # -- If no valid level is set, will default to info.
         LOG_LEVEL: "info"
-        
       extraEnv:
         - name: NAMESPACE
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-
       envFrom: |
         - configMapRef:
             name: {{ $.Values.configMaps.environment.name }}
@@ -575,7 +466,6 @@ deployments:
         # -- add ledger-db credentials from ConfigMap
         - configMapRef:
             name: {{ $.Values.configMaps.ledgerdb.name }}
-
       resources:
         requests:
           cpu: 100m
@@ -583,7 +473,6 @@ deployments:
         limits:
           cpu: 500m
           memory: 512Mi
-
       readinessProbe:
         httpGet:
           path: /ready
@@ -591,7 +480,6 @@ deployments:
         initialDelaySeconds: 60
         periodSeconds: 5
         timeoutSeconds: 10
-
       startupProbe:
         httpGet:
           path: /ready
@@ -603,11 +491,10 @@ deployments:
         secret:
           secretName: jwt-key
           items:
-          - key: jwtRS256.key.pub
-            path: publickey
+            - key: jwtRS256.key.pub
+              path: publickey
       - emptyDir: {}
         name: tmp
-    
     service:
       name: ledgerwriter
       type: ClusterIP
@@ -615,32 +502,22 @@ deployments:
         - name: http
           port: 8080
           targetPort: 8080
-
   # -- configuration for transactionhistory deployment
   transaction-history:
-    
     name: transactionhistory
-    
     app: transactionhistory
-    
     podAnnotations:
       linkerd.io/inject: enabled
-
     serviceAccountName: default
-    
     terminationGracePeriodSeconds: 5
-
     replicas: 2
-    
     podSecurityContext:
       fsGroup: 1000
       runAsGroup: 1000
       runAsNonRoot: true
       runAsUser: 1000
-    
     container:
       name: transactionhistory
-      
       securityContext:
         allowPrivilegeEscalation: false
         capabilities:
@@ -648,17 +525,14 @@ deployments:
             - all
         privileged: false
         readOnlyRootFilesystem: true
-      
       # -- version tag is set by appVersion value
       image: gcr.io/bank-of-anthos-ci/transactionhistory
-      
       volumeMounts:
         - name: publickey
           mountPath: "/tmp/.ssh"
           readOnly: true
         - mountPath: /tmp
           name: tmp
-      
       env:
         VERSION: "{{ $.Values.appVersion }}"
         PORT: "8080"
@@ -675,20 +549,17 @@ deployments:
         # -- Valid levels are debug, info, warn, error, fatal.
         # If no valid level is set, will default to info.
         LOG_LEVEL: "info"
-
       extraEnv:
         - name: NAMESPACE
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-
       envFrom: |
         - configMapRef:
             name: {{ $.Values.configMaps.environment.name }}
         # -- add ledger-db credentials from ConfigMap
         - configMapRef:
             name: {{ $.Values.configMaps.ledgerdb.name }}
-
       resources:
         requests:
           cpu: 100m
@@ -696,7 +567,6 @@ deployments:
         limits:
           cpu: 500m
           memory: 512Mi
-
       readinessProbe:
         httpGet:
           path: /ready
@@ -704,7 +574,6 @@ deployments:
         initialDelaySeconds: 60
         periodSeconds: 5
         timeoutSeconds: 10
-
       livenessProbe:
         httpGet:
           path: /healthy
@@ -712,24 +581,21 @@ deployments:
         initialDelaySeconds: 120
         periodSeconds: 5
         timeoutSeconds: 10
-
       startupProbe:
         httpGet:
           path: /healthy
           port: 8080
         failureThreshold: 30
         periodSeconds: 10
-
     volumes:
       - name: publickey
         secret:
           secretName: jwt-key
           items:
-          - key: jwtRS256.key.pub
-            path: publickey
+            - key: jwtRS256.key.pub
+              path: publickey
       - emptyDir: {}
         name: tmp
-    
     service:
       name: transactionhistory
       type: ClusterIP
@@ -737,55 +603,40 @@ deployments:
         - name: http
           port: 8080
           targetPort: 8080
-
   # -- configuration for userservice deployment
   userservice:
-
     name: userservice
-
     app: userservice
-
     podAnnotations:
       linkerd.io/inject: enabled
-
     serviceAccountName: default
-
     replicas: 3
-
     terminationGracePeriodSeconds: 5
-
     podSecurityContext:
       fsGroup: 1000
       runAsGroup: 1000
       runAsNonRoot: true
       runAsUser: 1000
-
     container:
-
       name: userservice
-
       securityContext:
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-              - all
-          privileged: false
-          readOnlyRootFilesystem: true
-          
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+            - all
+        privileged: false
+        readOnlyRootFilesystem: true
       # -- version tag is set by appVersion value
       image: gcr.io/bank-of-anthos-ci/userservice
-
       volumeMounts:
         - name: keys
           mountPath: "/tmp/.ssh"
           readOnly: true
         - mountPath: /tmp
           name: tmp
-
       ports:
         - name: http-server
           containerPort: 8080
-
       env:
         VERSION: "{{ $.Values.appVersion }}"
         PORT: "8080"
@@ -796,21 +647,18 @@ deployments:
         # -- Valid levels are debug, info, warn, error, fatal.
         # If no valid level is set, will default to info.
         LOG_LEVEL: "info"
-
       envFrom: |
         - configMapRef:
             name: {{ $.Values.configMaps.environment.name }}
         - configMapRef:
             name: {{ $.Values.configMaps.accountsdb.name }}
-
       resources:
-          requests:
-            cpu: 300m
-            memory: 128Mi
-          limits:
-            cpu: 500m
-            memory: 256Mi
-
+        requests:
+          cpu: 300m
+          memory: 128Mi
+        limits:
+          cpu: 500m
+          memory: 256Mi
       readinessProbe:
         httpGet:
           path: /ready
@@ -818,19 +666,17 @@ deployments:
         initialDelaySeconds: 10
         periodSeconds: 5
         timeoutSeconds: 10
-
     volumes:
       - name: keys
         secret:
           secretName: jwt-key
           items:
-          - key: jwtRS256.key
-            path: privatekey
-          - key: jwtRS256.key.pub
-            path: publickey
+            - key: jwtRS256.key
+              path: privatekey
+            - key: jwtRS256.key.pub
+              path: publickey
       - emptyDir: {}
         name: tmp
-
     service:
       name: userservice
       type: ClusterIP
@@ -838,36 +684,24 @@ deployments:
         - name: http
           port: 8080
           targetPort: 8080
-
   # -- configuration for loadgenerator deployment
   loadgenerator:
-
     name: loadgenerator
-
     app: loadgenerator
-
     replicas: 1
-
-    podAnnotations: 
+    podAnnotations:
       sidecar.istio.io/rewriteAppHTTPProbers: "true"
       linkerd.io/inject: enabled
-
     serviceAccountName: default
-
     terminationGracePeriodSeconds: 5
-
     restartPolicy: Always
-
     podSecurityContext:
       fsGroup: 1000
       runAsGroup: 1000
       runAsNonRoot: true
       runAsUser: 1000
-
     container:
-
       name: loadgenerator
-
       securityContext:
         allowPrivilegeEscalation: false
         capabilities:
@@ -875,15 +709,11 @@ deployments:
             - all
         privileged: false
         readOnlyRootFilesystem: true
-
       # -- version tag is set by appVersion value
       image: gcr.io/bank-of-anthos-ci/loadgenerator
-
       command: [locust, "--autostart"]
-
       ports:
         - containerPort: 8080
-      
       env:
         # FRONTEND_ADDR: "frontend:80"
         # USERS: "5"
@@ -893,7 +723,6 @@ deployments:
         LOCUST_SPAWN_RATE: "1"
         LOCUST_LOGLEVEL: info
         LOCUST_WEB_PORT: "8080"
-
       resources:
         requests:
           cpu: 100m
@@ -901,7 +730,6 @@ deployments:
         limits:
           cpu: 250m
           memory: 1Gi
-
     service:
       name: loadgenerator
       type: ClusterIP
@@ -909,17 +737,15 @@ deployments:
         - name: http
           port: 8080
           targetPort: 8080
-
-
+  podAnnotations:
+    deployUpdateTest: "1"
 # -- configuration for configmaps
 configMaps:
-  
   environment:
     name: environment-config
     data:
       LOCAL_ROUTING_NUM: "883745000"
       PUB_KEY_PATH: "/tmp/.ssh/publickey"
-  
   serviceApi:
     name: service-api-config
     data:
@@ -928,7 +754,6 @@ configMaps:
       HISTORY_API_ADDR: "transactionhistory:8080"
       CONTACTS_API_ADDR: "contacts:8080"
       USERSERVICE_API_ADDR: "userservice:8080"
-  
   demoData:
     name: demo-data-config
     data:
@@ -936,7 +761,6 @@ configMaps:
       DEMO_LOGIN_USERNAME: "testuser"
       # -- All demo user accounts are hardcoded to use the login password 'bankofanthos'
       DEMO_LOGIN_PASSWORD: "bankofanthos"
-  
   ledgerdb:
     name: ledger-db-config
     labels:
@@ -947,10 +771,9 @@ configMaps:
       POSTGRES_PASSWORD: password
       SPRING_DATASOURCE_URL: jdbc:postgresql://ledger-db:5432/postgresdb
       # -- should match POSTGRES_USER
-      SPRING_DATASOURCE_USERNAME: admin 
+      SPRING_DATASOURCE_USERNAME: admin
       # -- should match POSTGRES_PASSWORD
-      SPRING_DATASOURCE_PASSWORD: password 
-  
+      SPRING_DATASOURCE_PASSWORD: password
   accountsdb:
     name: accounts-db-config
     labels:
