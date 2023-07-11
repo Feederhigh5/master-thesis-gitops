@@ -372,6 +372,7 @@ deployments:
 
     podAnnotations:
       linkerd.io/inject: enabled
+      deployUpdateTest: "1"
 
     serviceAccountName: default
 
