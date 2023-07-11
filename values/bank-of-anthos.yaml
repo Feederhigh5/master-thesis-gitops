@@ -313,7 +313,7 @@ deployments:
     app: frontend
     podAnnotations:
       linkerd.io/inject: enabled
-      deployUpdateTest: "1"
+      deployUpdateTest: "2"
     serviceAccountName: default
     replicas: 2
     terminationGracePeriodSeconds: 5
@@ -370,7 +370,6 @@ deployments:
       # -- Customize the pod zone if it cannot be retrieved from the metadata server
 
       #POD_ZONE: "my-zone"
-
       extraEnv:
         - name: DEFAULT_USERNAME
           valueFrom:
