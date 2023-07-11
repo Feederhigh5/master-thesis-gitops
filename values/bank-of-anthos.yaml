@@ -747,11 +747,10 @@ deployments:
 
     podAnnotations:
       linkerd.io/inject: enabled
-      deployUpdateTest: "1"
 
     serviceAccountName: default
 
-    replicas: 2
+    replicas: 3
 
     terminationGracePeriodSeconds: 5
 
