@@ -411,14 +411,14 @@ deployments:
           port: 8080
         initialDelaySeconds: 10
         periodSeconds: 5
-        timeoutSeconds: 10
+        timeoutSeconds: 3
       livenessProbe:
         httpGet:
           path: /ready
           port: 8080
         initialDelaySeconds: 60
-        periodSeconds: 15
-        timeoutSeconds: 30
+        periodSeconds: 5
+        timeoutSeconds: 4
     volumes:
       - name: publickey
         secret:
