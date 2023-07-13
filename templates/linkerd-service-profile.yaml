@@ -1,7 +1,7 @@
 apiVersion: linkerd.io/v1alpha2
 kind: ServiceProfile
 metadata:
-  name: frontend.bank2.svc.cluster.local
+  name: frontend.bank.svc.cluster.local
   namespace: bank
 spec:
   routes:
