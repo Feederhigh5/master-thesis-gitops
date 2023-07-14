@@ -2,6 +2,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: userservice
+  namespace: bank
 spec:
   behavior:
     scaleUp:
