@@ -140,6 +140,7 @@ deployments:
       runAsGroup: 1000
       runAsNonRoot: true
       runAsUser: 1000
+    replicas: 2
     container:
       name: balancereader
       securityContext:
@@ -641,7 +642,7 @@ deployments:
     podAnnotations:
       linkerd.io/inject: enabled
     serviceAccountName: default
-    replicas: 3
+    replicas: 5
     terminationGracePeriodSeconds: 5
     podSecurityContext:
       fsGroup: 1000
