@@ -539,7 +539,7 @@ deployments:
       linkerd.io/inject: enabled
     serviceAccountName: default
     terminationGracePeriodSeconds: 5
-    replicas: 2
+    replicas: 3
     podSecurityContext:
       fsGroup: 1000
       runAsGroup: 1000
@@ -599,7 +599,7 @@ deployments:
           memory: 256Mi
         limits:
           cpu: 500m
-          memory: 512Mi
+          memory: 1G
       readinessProbe:
         httpGet:
           path: /ready
