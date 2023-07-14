@@ -689,8 +689,8 @@ deployments:
             name: {{ $.Values.configMaps.accountsdb.name }}
       resources:
         requests:
-          cpu: 300m
-          memory: 128Mi
+          cpu: 500m
+          memory: 512Mi
         limits:
           cpu: 500m
           memory: 256Mi
