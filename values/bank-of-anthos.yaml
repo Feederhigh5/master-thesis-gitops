@@ -450,7 +450,7 @@ deployments:
       runAsGroup: 1000
       runAsNonRoot: true
       runAsUser: 1000
-    replicas: 2
+    replicas: 1
     container:
       name: ledgerwriter
       securityContext:
@@ -539,7 +539,7 @@ deployments:
       linkerd.io/inject: enabled
     serviceAccountName: default
     terminationGracePeriodSeconds: 5
-    replicas: 3
+    replicas: 1
     podSecurityContext:
       fsGroup: 1000
       runAsGroup: 1000
