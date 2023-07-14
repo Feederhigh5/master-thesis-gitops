@@ -316,7 +316,7 @@ deployments:
       linkerd.io/inject: enabled
       deployUpdateTest: "3"
     serviceAccountName: default
-    replicas: 2
+    replicas: 5
     terminationGracePeriodSeconds: 5
     podSecurityContext:
       fsGroup: 1000
