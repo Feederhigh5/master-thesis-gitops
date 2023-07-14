@@ -17,7 +17,7 @@ spec:
     kind: Deployment
     name: userservice
   minReplicas: 5
-  maxReplicas: 10
+  maxReplicas: 15
   metrics:
     - type: Resource
       resource:
