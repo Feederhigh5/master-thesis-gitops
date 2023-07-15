@@ -12,7 +12,7 @@ apps:
     source:
       chart: bank-of-anthos
       repoURL: https://feederhigh5.github.io/helm/
-      targetRevision: 0.1.4
+      targetRevision: 0.2.0
   elasticSearch:
     name: elastic-search
     namespace: logging
