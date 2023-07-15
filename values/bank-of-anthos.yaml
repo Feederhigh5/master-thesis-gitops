@@ -318,6 +318,10 @@ deployments:
     serviceAccountName: default
     replicas: 2
     terminationGracePeriodSeconds: 5
+    strategy:
+      rollingUpdate:
+        maxSurge: 1
+        maxUnavailable: 0
     podSecurityContext:
       fsGroup: 1000
       runAsGroup: 1000
@@ -325,6 +329,11 @@ deployments:
       runAsUser: 1000
     container:
       name: frontend
+      lifecycle:
+        preStop:
+          exec:
+            # if SIGTERM triggers a quick exit; keep serving traffic instead
+            command: ["sleep", "60"]
       securityContext:
         allowPrivilegeEscalation: false
         capabilities:
@@ -643,8 +652,12 @@ deployments:
     podAnnotations:
       linkerd.io/inject: enabled
     serviceAccountName: default
-    replicas: 3 # in favor of autoscaler
-    terminationGracePeriodSeconds: 5
+    # replicas: 3 # in favor of autoscaler
+    terminationGracePeriodSeconds: 60
+    strategy:
+      rollingUpdate:
+        maxSurge: 1
+        maxUnavailable: 0    
     podSecurityContext:
       fsGroup: 1000
       runAsGroup: 1000
@@ -652,6 +665,11 @@ deployments:
       runAsUser: 1000
     container:
       name: userservice
+      lifecycle:
+        preStop:
+          exec:
+            # if SIGTERM triggers a quick exit; keep serving traffic instead
+            command: ["sleep", "60"]
       securityContext:
         allowPrivilegeEscalation: false
         capabilities:
@@ -821,3 +839,30 @@ configMaps:
       POSTGRES_USER: accounts-admin
       POSTGRES_PASSWORD: accounts-pwd
       ACCOUNTS_DB_URI: postgresql://accounts-admin:accounts-pwd@accounts-db:5432/accounts-db
+
+
+autoscaler:
+  userservice:
+    name: userservice-cpu-hpa
+    spec:
+      behavior:
+        scaleUp:
+          stabilizationWindowSeconds: 0
+          policies:
+            - type: Percent
+              value: 100
+              periodSeconds: 5
+          selectPolicy: Max
+      scaleTargetRef:
+        apiVersion: apps/v1
+        kind: Deployment
+        name: userservice
+      minReplicas: 3
+      maxReplicas: 15
+      metrics:
+        - type: Resource
+          resource:
+            name: cpu
+            target:
+              type: Utilization
+              averageUtilization: 66
