@@ -700,7 +700,7 @@ deployments:
           port: 8080
         initialDelaySeconds: 10
         periodSeconds: 5
-        timeoutSeconds: 10
+        timeoutSeconds: 1
     volumes:
       - name: keys
         secret:
