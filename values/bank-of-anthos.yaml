@@ -314,7 +314,7 @@ deployments:
     app: frontend
     podAnnotations:
       linkerd.io/inject: enabled
-      deployUpdateTest: "8"
+      deployUpdateTest: "9"
     serviceAccountName: default
     replicas: 2
     terminationGracePeriodSeconds: 60
