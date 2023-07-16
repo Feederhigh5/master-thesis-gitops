@@ -314,7 +314,7 @@ deployments:
     app: frontend
     podAnnotations:
       linkerd.io/inject: enabled
-      deployUpdateTest: "10"
+      deployUpdateTest: "1"
     serviceAccountName: default
     replicas: 2
     terminationGracePeriodSeconds: 60
@@ -657,7 +657,7 @@ deployments:
     strategy:
       rollingUpdate:
         maxSurge: 1
-        maxUnavailable: 0    
+        maxUnavailable: 0
     podSecurityContext:
       fsGroup: 1000
       runAsGroup: 1000
@@ -839,8 +839,6 @@ configMaps:
       POSTGRES_USER: accounts-admin
       POSTGRES_PASSWORD: accounts-pwd
       ACCOUNTS_DB_URI: postgresql://accounts-admin:accounts-pwd@accounts-db:5432/accounts-db
-
-
 autoscaler:
   userservice:
     name: userservice-cpu-hpa
