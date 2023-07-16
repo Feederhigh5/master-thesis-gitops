@@ -317,7 +317,7 @@ deployments:
       deployUpdateTest: "10"
     serviceAccountName: default
     replicas: 2
-    terminationGracePeriodSeconds: 5
+    terminationGracePeriodSeconds: 60
     strategy:
       rollingUpdate:
         maxSurge: 1
